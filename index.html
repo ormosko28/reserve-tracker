@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת מעקב ימי מילואים</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>מערכת מעקב ימי מילואים</h1>
+
+    <div class="form-container">
+        <input type="date" id="date">
+
+        <input type="text" id="unit" placeholder="יחידה">
+
+        <select id="activity">
+            <option>אימון</option>
+            <option>מבצעי</option>
+            <option>חירום</option>
+            <option>אחר</option>
+        </select>
+
+        <input type="number" id="days" placeholder="מספר ימים">
+
+        <button onclick="addDay()">הוסף פעילות</button>
+    </div>
+    <h2 id="totalDays">סה"כ ימי מילואים: 0</h2>
+    <h2>רשימת פעילויות</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>תאריך</th>
+                <th>יחידה</th>
+                <th>פעילות</th>
+                <th>ימים</th>
+                <th>פעולות</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody">
+
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
