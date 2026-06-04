@@ -20,7 +20,7 @@ window.onload = function () {
     updateTotal();
 };
 
-function addDay() {
+async function addDay() {
 
     const date = document.getElementById("date").value;
     const unit = document.getElementById("unit").value;
@@ -37,21 +37,21 @@ function addDay() {
     totalDays += Number(days);
 
     updateTotal();
-
-    const savedData =
-        JSON.parse(localStorage.getItem("reserveData")) || [];
-
-    savedData.push({
-        date,
-        unit,
-        activity,
-        days
-    });
-
-    localStorage.setItem(
-        "reserveData",
-        JSON.stringify(savedData)
-    );
+await fetch(
+    "https://0w8ortde9e.execute-api.us-east-1.amazonaws.com/activity",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            date,
+            unit,
+            activity,
+            days
+        })
+    }
+););
 
     document.getElementById("date").value = "";
     document.getElementById("unit").value = "";
