@@ -34,9 +34,7 @@ async function addDay() {
             }
         );
 
-        const result = await response.json();
-
-        console.log(result);
+        await response.json();
 
         document.getElementById("date").value = "";
         document.getElementById("unit").value = "";
@@ -77,7 +75,7 @@ async function loadActivities() {
                 <td>${item.activity}</td>
                 <td>${item.days}</td>
                 <td>
-                    <button onclick="deleteRow(this, ${item.days})">
+                    <button onclick="deleteRow('${item.soldierId}', ${item.days})">
                         מחק
                     </button>
                 </td>
@@ -103,11 +101,21 @@ function updateTotal() {
         'סה"כ ימי מילואים: ' + totalDays;
 }
 
-function deleteRow(button, days) {
+async function deleteRow(soldierId, days) {
 
-    button.parentElement.parentElement.remove();
+    try {
 
-    totalDays -= Number(days);
+        await fetch(
+            `https://0w8ortde9e.execute-api.us-east-1.amazonaws.com/activity/${soldierId}`,
+            {
+                method: "DELETE"
+            }
+        );
 
-    updateTotal();
+        await loadActivities();
+
+    } catch (error) {
+
+        alert("שגיאה במחיקה");
+    }
 }
