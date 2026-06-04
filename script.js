@@ -92,3 +92,4 @@ function deleteRow(button, days) {
 
     updateTotal();
 }
+
