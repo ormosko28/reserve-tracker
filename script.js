@@ -1,7 +1,7 @@
 let totalDays = 0;
 
-window.onload = async function () {
-    await loadActivities();
+window.onload = function () {
+    loadActivities();
 };
 
 async function addDay() {
@@ -34,9 +34,9 @@ async function addDay() {
             }
         );
 
-        if (!response.ok) {
-            throw new Error("שמירה נכשלה");
-        }
+        const result = await response.json();
+
+        console.log(result);
 
         document.getElementById("date").value = "";
         document.getElementById("unit").value = "";
