@@ -2,7 +2,7 @@ let totalDays = 0;
 
 window.onload = function () {
 
-    updateTotal();
+     loadActivities();
 };
 
 async function addDay() {
@@ -92,5 +92,38 @@ function deleteRow(button, days) {
     totalDays -= Number(days);
 
     updateTotal();
+}
+async function loadActivities() {
+
+    try {
+
+        const response = await fetch(
+            "https://0w8ortde9e.execute-api.us-east-1.amazonaws.com/activities"
+        );
+
+        const data = await response.json();
+
+        document.getElementById("tableBody").innerHTML = "";
+
+        totalDays = 0;
+
+        data.forEach(item => {
+
+            addRow(
+                item.date,
+                item.unit,
+                item.activity,
+                item.days
+            );
+
+            totalDays += Number(item.days);
+        });
+
+        updateTotal();
+
+    } catch (error) {
+
+        alert("שגיאה בטעינת הנתונים");
+    }
 }
 
