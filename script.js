@@ -127,26 +127,42 @@ async function loadActivities() {
 
         totalDays = 0;
 
-        data.forEach(item => {
+let activitiesCount = 0;
 
-            const row = document.createElement("tr");
+const uniqueUnits = new Set();
 
-            row.innerHTML = `
-                <td>${item.date}</td>
-                <td>${item.unit}</td>
-                <td>${item.activity}</td>
-                <td>${item.days}</td>
-                <td>
-                    <button onclick="deleteRow('${item.soldierId}')">
-                        מחק
-                    </button>
-                </td>
-            `;
+data.forEach(item => {
 
-            tableBody.appendChild(row);
+    const row = document.createElement("tr");
 
-            totalDays += Number(item.days);
-        });
+    row.innerHTML = `
+        <td>${item.date}</td>
+        <td>${item.unit}</td>
+        <td>${item.activity}</td>
+        <td>${item.days}</td>
+        <td>
+            <button onclick="deleteRow('${item.soldierId}')">
+                מחק
+            </button>
+        </td>
+    `;
+
+    tableBody.appendChild(row);
+
+    totalDays += Number(item.days);
+
+    activitiesCount++;
+
+    uniqueUnits.add(item.unit);
+});
+
+document.getElementById("activitiesCount").innerText =
+    activitiesCount;
+
+document.getElementById("unitsCount").innerText =
+    uniqueUnits.size;
+
+updateTotal();
 
         updateTotal();
 
