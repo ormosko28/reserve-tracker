@@ -3,15 +3,15 @@ body {
     direction: rtl;
     text-align: center;
 
-    background:
-        linear-gradient(
-            135deg,
-            #2c3524,
-            #556b2f,
-            #6b8e23
-        );
+    background: linear-gradient(
+        135deg,
+        #eef4e6,
+        #dfead2,
+        #cdddb9
+    );
 
     min-height: 100vh;
+    margin: 0;
     padding: 30px;
 }
 
@@ -27,94 +27,126 @@ body {
     top: 50%;
     left: 50%;
 
-    transform:
-        translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 
-    z-index: 999;
+    z-index: 9999;
 
-    background:
-        rgba(255,255,255,0.92);
+    width: 500px;
+
+    background: rgba(255,255,255,0.35);
 
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 
-    width: 450px;
+    border: 1px solid rgba(255,255,255,0.5);
 
-    padding: 40px;
+    border-radius: 30px;
 
-    border-radius: 25px;
-
-    border: 3px solid #556b2f;
+    padding: 50px;
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,0.35);
+        0 25px 80px rgba(0,0,0,0.15);
+
+    transition: 0.4s;
+}
+
+#loginBox:hover {
+
+    transform:
+        translate(-50%, -52%);
 }
 
 #loginBox h1 {
-    color: #2f4f2f;
-    font-weight: bold;
+
+    color: #3f5120;
+    font-weight: 800;
 }
 
 #loginBox h3 {
-    color: #666;
+
+    color: #555;
     margin-bottom: 25px;
 }
 
 #app {
 
     background:
-        rgba(255,255,255,0.15);
+        rgba(255,255,255,0.20);
 
     backdrop-filter: blur(8px);
 
-    border-radius: 25px;
+    border-radius: 30px;
 
-    padding: 25px;
+    padding: 30px;
 
     box-shadow:
-        0 10px 40px rgba(0,0,0,0.2);
+        0 10px 40px rgba(0,0,0,0.08);
+
+    transition: .5s;
 }
 
 h1 {
-    color: white;
-    font-weight: bold;
+
+    color: #3f5120;
+    font-size: 3rem;
+    font-weight: 800;
 }
 
 h2 {
-    color: white;
+
+    color: #3f5120;
 }
 
 h3 {
-    color: white;
+
+    color: #4b5320;
 }
 
 #userEmail {
-    color: #f8f9fa;
+
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .form-container {
 
-    background: white;
+    background: rgba(255,255,255,0.85);
 
-    padding: 20px;
+    padding: 25px;
 
     border-radius: 20px;
 
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 
     box-shadow:
-        0 5px 20px rgba(0,0,0,0.15);
+        0 5px 25px rgba(0,0,0,0.08);
 }
 
 input,
 select {
 
-    padding: 12px;
+    padding: 14px;
 
     margin: 6px;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
-    border: 1px solid #ccc;
+    border: 1px solid #d5d5d5;
+
+    background: white;
+
+    min-width: 180px;
+}
+
+input:focus,
+select:focus {
+
+    outline: none;
+
+    border-color: #6b8e23;
+
+    box-shadow:
+        0 0 10px rgba(107,142,35,0.3);
 }
 
 button {
@@ -125,15 +157,17 @@ button {
 
     border: none;
 
-    padding: 12px 20px;
+    padding: 14px 24px;
 
-    border-radius: 10px;
+    border-radius: 12px;
+
+    font-size: 1rem;
 
     font-weight: bold;
 
     cursor: pointer;
 
-    transition: .3s;
+    transition: 0.3s;
 }
 
 button:hover {
@@ -147,36 +181,38 @@ button:hover {
 
     background: white;
 
+    width: 380px;
+
+    margin: 25px auto;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
     color: #556b2f;
 
-    width: 320px;
-
-    margin: 20px auto;
-
-    padding: 15px;
-
-    border-radius: 15px;
+    font-size: 2rem;
 
     font-weight: bold;
 
     box-shadow:
-        0 5px 20px rgba(0,0,0,0.15);
+        0 5px 25px rgba(0,0,0,0.08);
 }
 
 table {
 
     width: 100%;
 
-    background: white;
-
     border-collapse: collapse;
 
-    border-radius: 15px;
+    background: rgba(255,255,255,0.92);
+
+    border-radius: 20px;
 
     overflow: hidden;
 
     box-shadow:
-        0 5px 20px rgba(0,0,0,0.15);
+        0 5px 25px rgba(0,0,0,0.08);
 }
 
 th {
@@ -185,17 +221,45 @@ th {
 
     color: white;
 
-    padding: 15px;
+    padding: 18px;
 }
 
 td {
 
-    padding: 12px;
+    padding: 16px;
 
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #ececec;
 }
 
 tr:hover {
 
-    background: #f5f5f5;
+    background: #f7f9f4;
+}
+
+@media (max-width: 768px) {
+
+    #loginBox {
+
+        width: 90%;
+        padding: 30px;
+    }
+
+    .form-container {
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    input,
+    select,
+    button {
+
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    #totalDays {
+
+        width: 90%;
+    }
 }
