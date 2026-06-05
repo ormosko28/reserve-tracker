@@ -271,3 +271,54 @@ tr:hover {
 
     pointer-events: none;
 }
+.header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+
+    padding: 20px;
+
+    background: rgba(255,255,255,0.25);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 20px;
+}
+
+.header-right img {
+
+    width: 90px;
+
+    height: auto;
+}
+
+.header-center {
+
+    flex: 1;
+
+    text-align: center;
+}
+
+.header-center h1 {
+
+    margin: 0;
+
+    color: #3f5120;
+}
+
+.header-center h3 {
+
+    margin-top: 10px;
+
+    color: #4b5320;
+}
+
+.header-left {
+
+    width: 120px;
+}
