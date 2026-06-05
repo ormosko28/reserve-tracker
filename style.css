@@ -1,38 +1,24 @@
-```css
 body {
-    font-family: 'Segoe UI', sans-serif;
-    direction: rtl;
-    text-align: center;
 
-    background: linear-gradient(
-        135deg,
-        #eef4e6,
-        #dfead2,
-        #cdddb9
-    );
+    font-family: 'Segoe UI', sans-serif;
+
+    direction: rtl;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef3e5,
+            #dde6d0
+        );
+
+    margin: 0;
+
+    padding: 30px;
 
     min-height: 100vh;
-    margin: 0;
-    padding: 30px;
 }
 
-/* ========================= */
 /* LOGIN */
-/* ========================= */
-
-.logo img {
-
-    width: 140px;
-
-    height: auto;
-
-    margin-bottom: 20px;
-
-    filter:
-        drop-shadow(
-            0 10px 25px rgba(0,0,0,0.2)
-        );
-}
 
 #loginBox {
 
@@ -41,202 +27,208 @@ body {
     top: 50%;
     left: 50%;
 
-    transform: translate(-50%, -50%);
+    transform:
+        translate(-50%, -50%);
 
-    z-index: 9999;
+    width: 450px;
 
-    width: 500px;
-
-    background: rgba(255,255,255,0.35);
+    background:
+        rgba(255,255,255,0.35);
 
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
-    border: 1px solid rgba(255,255,255,0.5);
 
     border-radius: 30px;
 
-    padding: 50px;
+    padding: 40px;
+
+    text-align: center;
+
+    z-index: 9999;
 
     box-shadow:
-        0 25px 80px rgba(0,0,0,0.15);
-
-    transition: 0.4s;
+        0 20px 60px rgba(0,0,0,0.15);
 }
 
-#loginBox:hover {
+.login-logo {
 
-    transform:
-        translate(-50%, -52%);
+    width: 130px;
+
+    margin-bottom: 15px;
 }
 
 #loginBox h1 {
 
-    color: #3f5120;
+    color: #4f6228;
+
     font-weight: 800;
+
+    margin-bottom: 10px;
 }
 
-#loginBox h3 {
+#loginBox p {
 
-    color: #555;
+    color: #666;
+
     margin-bottom: 25px;
 }
 
-/* ========================= */
+#loginBox input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid #ddd;
+
+    margin-bottom: 15px;
+}
+
 /* APP */
-/* ========================= */
 
 #app {
 
     background:
-        rgba(255,255,255,0.20);
+        rgba(255,255,255,0.25);
 
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
 
     border-radius: 30px;
 
     padding: 30px;
 
-    box-shadow:
-        0 10px 40px rgba(0,0,0,0.08);
-
-    transition: .5s;
+    min-height: 90vh;
 }
 
 .blur-app {
 
     filter: blur(10px);
 
-    opacity: 0.45;
+    opacity: .3;
 
     pointer-events: none;
 }
 
-/* ========================= */
 /* HEADER */
-/* ========================= */
 
-.header {
+.main-header {
 
     position: relative;
 
     text-align: center;
 
+    margin-bottom: 40px;
+
     padding: 20px;
-
-    margin-bottom: 30px;
-
-    background: rgba(255,255,255,0.25);
-
-    backdrop-filter: blur(10px);
-
-    border-radius: 25px;
 }
 
-.header-center {
+.header-logo {
 
-    text-align: center;
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
 }
 
-.header-center h1 {
+.header-logo img {
 
-    margin: 0;
+    width: 120px;
+}
 
-    color: #4b5f25;
+.header-title h1 {
+
+    color: #4f6228;
+
+    font-size: 3rem;
 
     font-weight: 800;
 }
 
-.header-center h3 {
-
-    margin-top: 15px;
+.header-title h3 {
 
     color: #556b2f;
 
-    font-size: 2rem;
+    font-size: 1.8rem;
 
-    font-weight: bold;
-}
-
-.header-right {
-
-    position: absolute;
-
-    top: 15px;
-
-    right: 25px;
-}
-
-.header-right img {
-
-    width: 140px;
-
-    height: auto;
-
-    filter:
-        drop-shadow(
-            0 5px 15px rgba(0,0,0,0.15)
-        );
+    margin-top: 15px;
 }
 
 .logout-btn {
 
     margin-top: 15px;
+}
 
-    padding: 12px 30px;
+/* DASHBOARD */
 
-    background: #556b2f;
+.stats-container {
 
-    border-radius: 12px;
+    display: flex;
 
-    color: white;
+    gap: 20px;
+
+    justify-content: center;
+
+    margin-bottom: 40px;
+
+    flex-wrap: wrap;
+}
+
+.stat-card {
+
+    background: white;
+
+    width: 250px;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+}
+
+.stat-card h4 {
+
+    color: #556b2f;
+
+    margin-bottom: 15px;
+}
+
+.stat-card span {
+
+    font-size: 2.3rem;
 
     font-weight: bold;
+
+    color: #4f6228;
 }
 
-/* ========================= */
-/* TITLES */
-/* ========================= */
-
-h1 {
-
-    color: #3f5120;
-    font-size: 3rem;
-    font-weight: 800;
-}
-
-h2 {
-
-    color: #3f5120;
-}
-
-h3 {
-
-    color: #4b5320;
-}
-
-#userEmail {
-
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-/* ========================= */
 /* FORM */
-/* ========================= */
 
 .form-container {
 
-    background: rgba(255,255,255,0.85);
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    background: white;
 
     padding: 25px;
 
     border-radius: 20px;
 
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 
     box-shadow:
-        0 5px 25px rgba(0,0,0,0.08);
+        0 8px 25px rgba(0,0,0,0.08);
 }
 
 input,
@@ -244,31 +236,14 @@ select {
 
     padding: 14px;
 
-    margin: 6px;
-
     border-radius: 12px;
 
-    border: 1px solid #d5d5d5;
-
-    background: white;
+    border: 1px solid #ddd;
 
     min-width: 180px;
 }
 
-input:focus,
-select:focus {
-
-    outline: none;
-
-    border-color: #6b8e23;
-
-    box-shadow:
-        0 0 10px rgba(107,142,35,0.3);
-}
-
-/* ========================= */
 /* BUTTONS */
-/* ========================= */
 
 button {
 
@@ -278,70 +253,55 @@ button {
 
     border: none;
 
-    padding: 14px 24px;
-
     border-radius: 12px;
 
-    font-size: 1rem;
+    padding: 14px 24px;
 
     font-weight: bold;
 
     cursor: pointer;
 
-    transition: 0.3s;
+    transition: .3s;
 }
 
 button:hover {
 
-    background: #3f5120;
+    background: #445522;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
-/* ========================= */
-/* TOTAL DAYS */
-/* ========================= */
-
-#totalDays {
-
-    background: white;
-
-    width: 380px;
-
-    margin: 25px auto;
-
-    padding: 20px;
-
-    border-radius: 20px;
-
-    color: #556b2f;
-
-    font-size: 2rem;
-
-    font-weight: bold;
-
-    box-shadow:
-        0 5px 25px rgba(0,0,0,0.08);
-}
-
-/* ========================= */
 /* TABLE */
-/* ========================= */
+
+.table-section {
+
+    margin-top: 30px;
+}
+
+.table-section h2 {
+
+    color: #4f6228;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+}
 
 table {
 
     width: 100%;
 
-    border-collapse: collapse;
-
-    background: rgba(255,255,255,0.92);
+    background: white;
 
     border-radius: 20px;
 
     overflow: hidden;
 
+    border-collapse: collapse;
+
     box-shadow:
-        0 5px 25px rgba(0,0,0,0.08);
+        0 8px 25px rgba(0,0,0,0.08);
 }
 
 th {
@@ -357,7 +317,10 @@ td {
 
     padding: 16px;
 
-    border-bottom: 1px solid #ececec;
+    text-align: center;
+
+    border-bottom:
+        1px solid #eee;
 }
 
 tr:hover {
@@ -365,40 +328,41 @@ tr:hover {
     background: #f7f9f4;
 }
 
-/* ========================= */
 /* MOBILE */
-/* ========================= */
 
 @media (max-width: 768px) {
 
     #loginBox {
 
         width: 90%;
-        padding: 30px;
     }
 
-    .form-container {
+    .header-logo {
 
-        display: flex;
-        flex-direction: column;
+        position: static;
+
+        margin-bottom: 20px;
     }
 
-    input,
-    select,
-    button {
-
-        width: 100%;
-        margin: 5px 0;
-    }
-
-    #totalDays {
-
-        width: 90%;
-    }
-
-    .header-right img {
+    .header-logo img {
 
         width: 90px;
     }
+
+    .header-title h1 {
+
+        font-size: 2rem;
+    }
+
+    .stats-container {
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .stat-card {
+
+        width: 90%;
+    }
 }
-```
