@@ -5,45 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מערכת מעקב ימי מילואים</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
+</head><body>
 
-    <h1>מערכת מעקב ימי מילואים</h1>
+    <div id="loginBox">
 
-    <div class="form-container">
-        <input type="date" id="date">
+        <h1>🪖 Reserve Tracker</h1>
 
-        <input type="text" id="unit" placeholder="יחידה">
+        <h3>ברוכים הבאים למערכת ניהול ימי מילואים</h3>
 
-        <select id="activity">
-            <option>אימון</option>
-            <option>מבצעי</option>
-            <option>חירום</option>
-            <option>אחר</option>
-        </select>
+        <input
+            type="email"
+            id="emailInput"
+            placeholder="הכנס כתובת מייל"
+        >
 
-        <input type="number" id="days" placeholder="מספר ימים">
+        <button onclick="login()">
+            כניסה למערכת
+        </button>
 
-        <button onclick="addDay()">הוסף פעילות</button>
     </div>
-    <h2 id="totalDays">סה"כ ימי מילואים: 0</h2>
-    <h2>רשימת פעילויות</h2>
 
-    <table>
-        <thead>
-            <tr>
-                <th>תאריך</th>
-                <th>יחידה</th>
-                <th>פעילות</th>
-                <th>ימים</th>
-                <th>פעולות</th>
-            </tr>
-        </thead>
+    <div id="app" style="display:none">
 
-        <tbody id="tableBody">
+        <h1>מערכת מעקב ימי מילואים</h1>
 
-        </tbody>
-    </table>
+        <h3 id="userEmail"></h3>
+
+        <div class="form-container">
+
+            <input type="date" id="date">
+
+            <input type="text" id="unit" placeholder="יחידה">
+
+            <select id="activity">
+                <option>אימון</option>
+                <option>מבצעי</option>
+                <option>חירום</option>
+                <option>אחר</option>
+            </select>
+
+            <input type="number" id="days" placeholder="מספר ימים">
+
+            <button onclick="addDay()">
+                הוסף פעילות
+            </button>
+
+        </div>
+
+        <h2 id="totalDays">
+            סה"כ ימי מילואים: 0
+        </h2>
+
+        <h2>רשימת פעילויות</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>תאריך</th>
+                    <th>יחידה</th>
+                    <th>פעילות</th>
+                    <th>ימים</th>
+                    <th>פעולות</th>
+                </tr>
+            </thead>
+
+            <tbody id="tableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
 
     <script src="script.js"></script>
 
