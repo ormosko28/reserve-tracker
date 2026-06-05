@@ -101,8 +101,10 @@ async function loadActivities() {
 
     try {
 
-        const response = await fetch(
-            "https://0w8ortde9e.execute-api.us-east-1.amazonaws.com/activities"
+       const email = localStorage.getItem("email");
+
+       const response = await fetch(
+       `https://0w8ortde9e.execute-api.us-east-1.amazonaws.com/activities?email=${email}`
         );
 
         const data = await response.json();
