@@ -51,9 +51,11 @@ body {
 
 .login-logo {
 
-    width: 130px;
+    width: 260px;
 
-    margin-bottom: 15px;
+    height: auto;
+
+    margin-bottom: 20px;
 }
 
 #loginBox h1 {
@@ -134,7 +136,14 @@ body {
 
 .header-logo img {
 
-    width: 120px;
+    width: 220px;
+
+    height: auto;
+
+    filter:
+        drop-shadow(
+            0 6px 18px rgba(0,0,0,0.2)
+        );
 }
 
 .header-title h1 {
