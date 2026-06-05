@@ -1,51 +1,104 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     direction: rtl;
     text-align: center;
-    background-color: #f4f4f4;
-    padding: 20px;
+    background: linear-gradient(135deg, #f4f7fb, #e8eef7);
+    margin: 0;
+    padding: 30px;
 }
 
 h1 {
+    color: #1f3c88;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+h2 {
     color: #333;
 }
 
+h3 {
+    color: #666;
+}
+
+#loginBox {
+    background: white;
+    max-width: 450px;
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+#app {
+    max-width: 1200px;
+    margin: auto;
+}
+
 .form-container {
-    margin-bottom: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 input,
-select,
-button {
-    padding: 10px;
+select {
+    padding: 12px;
     margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    min-width: 180px;
 }
 
 button {
-    background-color: #0078d4;
-    color: white;
+    padding: 12px 20px;
+    margin: 5px;
     border: none;
+    border-radius: 10px;
+    background: #0d6efd;
+    color: white;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover {
-    background-color: #005ea6;
+    transform: translateY(-2px);
+    background: #0b5ed7;
+}
+
+#totalDays {
+    background: white;
+    width: 350px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 15px;
+    color: #198754;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 table {
-    width: 80%;
-    margin: auto;
+    width: 100%;
     border-collapse: collapse;
-    background-color: white;
-}
-
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 10px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 th {
-    background-color: #0078d4;
+    background: #0d6efd;
     color: white;
+    padding: 15px;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+    background: #f8f9fa;
 }
