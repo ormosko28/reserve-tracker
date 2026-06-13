@@ -1,33 +1,34 @@
-# 🪖 Reserve Tracker
+# Reserve Tracker
 
-A serverless AWS-based web application for managing and tracking military reserve duty activities.
-
-The system allows users to record reserve activities, monitor total reserve days, view activity history, and securely store data in the AWS Cloud.
+A cloud-native AWS application for tracking military reserve duty activities, built using a serverless architecture and modern DevOps practices.
 
 ---
 
-# 🚀 Features
+## Project Overview
 
-- User login using email address
+Reserve Tracker is a web-based system that allows users to manage and track reserve duty activities.
+
+Users can:
+
+- Log in using an email address
 - Add reserve duty activities
-- View activity history
-- Delete activities
+- View personal activity history
 - Track total reserve days
-- Count total activities
-- Count unique military units
-- Secure cloud-based data storage
-- Responsive and modern user interface
-- HTTPS secured website
+- View dashboard statistics
+- Delete activities
+- Store and retrieve data from AWS DynamoDB
+
+The application is fully hosted on AWS and deployed automatically through GitHub Actions CI/CD pipelines.
 
 ---
 
-# 🏗️ Architecture
+# Architecture Diagram
 
-![Architecture](architecture.png)
+![Architecture Diagram](Architecture1.png)
 
 ---
 
-# ☁️ AWS Services Used
+# AWS Services Used
 
 | Service | Purpose |
 |----------|----------|
@@ -35,96 +36,114 @@ The system allows users to record reserve activities, monitor total reserve days
 | AWS Certificate Manager (ACM) | SSL/TLS Certificate |
 | Amazon CloudFront | Content Delivery Network (CDN) |
 | Amazon S3 | Static Website Hosting |
-| Amazon API Gateway | REST API Management |
-| AWS Lambda | Serverless Backend Logic |
-| Amazon DynamoDB | NoSQL Database |
+| Amazon API Gateway | REST API |
+| AWS Lambda | Business Logic |
+| Amazon DynamoDB | Data Storage |
+| AWS IAM | Roles and Permissions |
+| Amazon CloudWatch | Monitoring and Logging |
+| GitHub Actions | CI/CD Automation |
 
 ---
 
-# 🔄 Application Flow
+# System Architecture
 
-1. The user accesses the application through a web browser.
-2. Route 53 resolves the custom domain name.
-3. CloudFront delivers the website securely using HTTPS.
-4. Static files (HTML, CSS, JavaScript) are loaded from Amazon S3.
-5. API requests are sent to Amazon API Gateway.
-6. API Gateway invokes AWS Lambda functions.
-7. Lambda processes the request and interacts with DynamoDB.
-8. DynamoDB stores or retrieves activity data.
-9. The response is returned to the user interface.
-
----
-
-# 📐 Architecture Overview
+The application follows a serverless architecture:
 
 ```text
 User
- │
- ▼
-Route 53
- │
- ▼
+ ↓
+Route53
+ ↓
 CloudFront
- │
- ├── ACM Certificate
- │
- ├── S3 Static Website
- │
- └── API Gateway
-          │
-          ▼
-        Lambda
-          │
-          ▼
-       DynamoDB
+ ↓
+S3 Static Website
+ ↓
+API Gateway
+ ↓
+Lambda
+ ↓
+DynamoDB
 ```
 
 ---
 
-# 🛠️ Technologies
+# Frontend
 
-## Frontend
+The frontend is built using:
 
 - HTML5
 - CSS3
 - JavaScript
 
-## Backend
+Features:
 
-- AWS Lambda (Node.js)
+- Email login
+- Activity management
+- Dashboard statistics
+- Activity history table
+- Responsive design
+- Modern UI with glassmorphism effects
 
-## Cloud Services
-
-- Amazon S3
-- Amazon CloudFront
-- Amazon Route 53
-- AWS Certificate Manager (ACM)
-- Amazon API Gateway
-- Amazon DynamoDB
-
----
-
-# 📂 Project Structure
+Hosted in:
 
 ```text
-ReserveTracker
-│
-├── index.html
-├── style.css
-├── script.js
-├── logo.png
-├── architecture.png
-└── README.md
+Amazon S3
+```
+
+Delivered globally through:
+
+```text
+Amazon CloudFront
 ```
 
 ---
 
-# 🗄️ Database Schema
+# Backend
 
-### DynamoDB Table: ReserveTracker
+The backend is implemented using:
+
+```text
+AWS Lambda (Node.js 22.x)
+```
+
+The Lambda function handles:
+
+### GET /activities
+
+Returns all activities belonging to the logged-in user.
+
+### POST /activity
+
+Creates a new reserve activity.
+
+### DELETE /activity/{id}
+
+Deletes an existing activity.
+
+### OPTIONS
+
+Handles CORS requests.
+
+---
+
+# Database
+
+Data is stored in:
+
+```text
+Amazon DynamoDB
+```
+
+Table:
+
+```text
+ReserveTracker
+```
+
+Attributes:
 
 | Attribute | Type |
-|------------|------|
+|------------|--------|
 | soldierId | String |
 | email | String |
 | date | String |
@@ -134,55 +153,149 @@ ReserveTracker
 
 ---
 
-# 🔐 Security
+# API Endpoints
 
-- HTTPS enabled using AWS Certificate Manager (ACM)
-- Secure CloudFront distribution
-- Serverless backend architecture
-- Data stored securely in Amazon DynamoDB
-- API access managed through Amazon API Gateway
-
----
-
-# 📸 Screenshots
-
-## Login Screen
-
-_Add screenshot here_
-
-## Dashboard
-
-_Add screenshot here_
-
-## DynamoDB Table
-
-_Add screenshot here_
+| Method | Endpoint |
+|----------|----------|
+| GET | /activities |
+| POST | /activity |
+| DELETE | /activity/{id} |
+| OPTIONS | /activity |
 
 ---
 
-# 🎯 Project Objectives
+# Security
 
-The purpose of this project is to demonstrate the implementation of a complete serverless cloud application using AWS services.
+The project uses multiple AWS security services.
 
-The project integrates:
+## Route 53
 
-- Static website hosting
-- Global content delivery
-- Custom domain configuration
-- SSL certificate management
-- REST API development
-- Serverless computing
-- Cloud database integration
+Provides DNS routing for the custom domain.
+
+## ACM
+
+Provides HTTPS certificates for secure communication.
+
+## IAM Roles
+
+### Lambda Execution Role
+
+Permissions:
+
+- CloudWatch Logs access
+- DynamoDB Scan
+- DynamoDB PutItem
+- DynamoDB DeleteItem
+- DynamoDB DescribeTable
+
+### GitHub Deployment User
+
+Permissions:
+
+- S3 Upload
+- S3 Delete
+- S3 List Bucket
+- CloudFront Deployment Support
+
+### GitHub Actions
+
+Used for automatic deployment from GitHub to AWS.
 
 ---
 
-# 👨‍💻 Author
+# CI/CD Pipeline
 
-**Or Moskovich**
-** maoz nachom**
+The project includes automated deployment using GitHub Actions.
 
-B.Sc. Information Systems
+## Frontend Deployment
 
-Yezreel Valley College
+The workflow automatically:
 
-2026
+1. Checks out the repository
+2. Configures AWS credentials
+3. Uploads website files to S3
+4. Updates the hosted website
+
+Deployment target:
+
+```text
+Amazon S3
+```
+
+---
+
+# Monitoring
+
+Monitoring is provided through:
+
+```text
+Amazon CloudWatch
+```
+
+Collected logs:
+
+- Lambda Logs
+- API Gateway Requests
+- CloudFront Metrics
+- DynamoDB Metrics
+
+---
+
+# User Flow
+
+1. User accesses the website
+2. Route 53 resolves the custom domain
+3. CloudFront serves the website
+4. Static files are loaded from S3
+5. API requests are sent to API Gateway
+6. Lambda processes the request
+7. DynamoDB stores or retrieves data
+8. Response is returned to the user
+
+---
+
+# Technologies
+
+## Frontend
+
+- HTML
+- CSS
+- JavaScript
+
+## Backend
+
+- Node.js 22.x
+- AWS Lambda
+
+## AWS Services
+
+- Route 53
+- ACM
+- CloudFront
+- S3
+- API Gateway
+- DynamoDB
+- IAM
+- CloudWatch
+
+## DevOps
+
+- GitHub
+- GitHub Actions
+- CI/CD
+
+---
+
+# Project URL
+
+https://reserve-tracker-or-maoz.proj.rotem.click/
+
+---
+
+# Authors
+
+**Or Moskovich**  
+**Maoz Nachom**
+
+Cloud Computing Project  
+Yezreel Valley College (YVC)
