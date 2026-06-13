@@ -80,15 +80,12 @@ DynamoDB
 
 ## Login Screen
 
-> Add screenshot here
 
 ![Login Screen](login.png)
 
 ---
 
 ## Dashboard
-
-> Add screenshot here
 
 ![Dashboard](desh.png)
 
