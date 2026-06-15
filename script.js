@@ -1,11 +1,16 @@
 function login() {
 
     const email =
-        document.getElementById("emailInput").value;
+        document.getElementById("emailInput")
+        .value
+        .trim();
 
-    if (!email) {
+    const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        alert("יש להזין מייל");
+    if (!emailRegex.test(email)) {
+
+        alert("יש להזין כתובת מייל תקינה");
 
         return;
     }
